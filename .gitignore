@@ -1,0 +1,30 @@
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+pip-selfcheck.json
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs and caches
+inventory_value.log
+price_cache.json
+*.log
+
+# Local config (keep secrets out of repo)
+config.json
+*.env
+
+# Firebase service account keys
+*-firebase-adminsdk-*.json
+serviceAccount*.json
+
+# OS files
+.DS_Store

@@ -1,0 +1,10 @@
+{
+  "steam_id": "7656119XXXXXXXXXXXXXXXX",
+  "app_id": "730",
+  "context_id": "2",
+  "currency": 3,
+  "log_file": "inventory_value.log",
+  "sleep_interval": 3,
+  "price_cache_file": "price_cache.json",
+  "firebase_service_account": "path/to/serviceAccount.json"
+}
