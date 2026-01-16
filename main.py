@@ -53,8 +53,8 @@ def is_cache_valid(entry, max_age_seconds=3600):
     except Exception:
         return False
 
-def saveToFirestore(data, steam_id):
-    cred = credentials.Certificate('steam-value-tracker-firebase-adminsdk-fbsvc-6177595f62.json')
+def saveToFirestore(data, steam_id, firebase_service_account):
+    cred = credentials.Certificate(firebase_service_account)
     firebase_admin.initialize_app(cred)
     db = firestore.client()
     entries_ref = db.collection('inventory_values').document(steam_id).collection('entries')
@@ -211,6 +211,7 @@ def main():
     context_id = config['context_id']
     currency = config['currency']
     sleep_interval = config.get('sleep_interval', 3)
+    firebase_service_account = config.get('firebase_service_account')
 
     if steam_id == "YOUR_STEAM_ID_64":
         logging.error("Please configure your Steam ID in config.json")
@@ -302,7 +303,7 @@ def main():
 
     # Save to Firestore
     try:
-        saveToFirestore(total_value, steam_id)
+        saveToFirestore(total_value, steam_id, firebase_service_account)
     except Exception as e:
         logging.error(f"Error saving to Firestore: {e}")
     
