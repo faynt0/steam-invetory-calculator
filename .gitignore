@@ -28,3 +28,6 @@ serviceAccount*.json
 
 # OS files
 .DS_Store
+
+# prompts
+agent
